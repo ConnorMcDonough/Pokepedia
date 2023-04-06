@@ -14,4 +14,8 @@
     <Folder Include="Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Pokepedia.Domain\Pokepedia.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
