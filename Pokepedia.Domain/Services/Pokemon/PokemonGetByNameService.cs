@@ -5,9 +5,9 @@ using Pokepedia.Domain.Services.Crud;
 
 namespace Pokepedia.Domain.Services.Pokemons
 {
-    public class PokemonGetService : IGetService<PokemonName, Pokemon>
+    public class PokemonGetByNameService : IGetService<PokemonName, Pokemon>
     {
-        public async Task<Pokemon> GetPokemonAsync(PokemonName pokemon)
+        public async Task<Pokemon> GetPokemonByNameAsync(PokemonName pokemon)
         {
             var pokemonContender = new PokemonContender//go to pokiapi
             {

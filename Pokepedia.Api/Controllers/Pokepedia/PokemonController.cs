@@ -24,7 +24,7 @@ namespace Pokepedia.Api.Controllers.Pokepedia
         public async Task<ActionResult<GetPokemonByNameResponse>> HandleAsync([FromQuery] GetPokemonByNameRequest getPokemonByNameRequest, CancellationToken cancellation = default)//TODO Add inject service for getting name
         {
             var pokemonToGet = new PokemonName(new PokemonNameContender() { Name = getPokemonByNameRequest.Name });
-            var getPokemon = await _pokemonGetService.GetPokemonAsync(pokemonToGet);
+            var getPokemon = await _pokemonGetService.GetPokemonByNameAsync(pokemonToGet);
 
             var response = new GetPokemonByNameResponse()
             {

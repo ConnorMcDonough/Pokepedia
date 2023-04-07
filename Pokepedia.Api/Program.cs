@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IGetService<PokemonName, Pokemon>, PokemonGetService>();
+builder.Services.AddSingleton<IGetService<PokemonName, Pokemon>, PokemonGetByNameService>();
 
 var app = builder.Build();
 
