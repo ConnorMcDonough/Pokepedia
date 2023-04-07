@@ -1,9 +1,9 @@
-﻿namespace Pokepedia.Api.Controllers.Pokepedia.Responses
+﻿namespace Pokepedia.Domain.Contenders.Pokemons
 {
-    public class GetPokemonByNameResponse
+    public class PokemonContender
     {
-        public string Name { get; set; } = string.Empty;
         public int Id { get; set; } = 0;
+        public string Name { get; set; } = string.Empty;
         public int Weight { get; set; } = 0;
         public string SpriteImagePath { get; set; } = string.Empty;
     }
