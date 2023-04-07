@@ -1,6 +1,6 @@
 ﻿
-using Pokepedia.Domain.Contenders.Pokemon;
-using Pokepedia.Domain.Entities.Pokemon;
+using Pokepedia.Domain.Contenders.Pokemons;
+using Pokepedia.Domain.Entities.Pokemons;
 using Pokepedia.Domain.Services.Crud;
 
 namespace Pokepedia.Domain.Services.Pokemons

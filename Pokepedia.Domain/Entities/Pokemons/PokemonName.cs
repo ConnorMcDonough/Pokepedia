@@ -1,6 +1,6 @@
-﻿using Pokepedia.Domain.Contenders.Pokemon;
+﻿using Pokepedia.Domain.Contenders.Pokemons;
 
-namespace Pokepedia.Domain.Entities.Pokemon
+namespace Pokepedia.Domain.Entities.Pokemons
 {
     public class PokemonName
     {

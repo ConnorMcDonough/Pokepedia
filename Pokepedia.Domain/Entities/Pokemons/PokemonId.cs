@@ -1,4 +1,4 @@
-﻿namespace Pokepedia.Domain.Entities.Pokemons
+﻿namespace Pokepedia.Domain.Entities.Pokemonss
 {
     internal class PokemonIdContender
     {

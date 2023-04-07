@@ -1,4 +1,4 @@
-﻿namespace Pokepedia.Domain.Contenders.Pokemon
+﻿namespace Pokepedia.Domain.Contenders.Pokemons
 {
     public class PokemonContender
     {

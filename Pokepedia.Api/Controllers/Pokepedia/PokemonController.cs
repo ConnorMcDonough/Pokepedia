@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Pokepedia.Api.Controllers.Pokepedia.Requests;
 using Pokepedia.Api.Controllers.Pokepedia.Responses;
-using Pokepedia.Domain.Contenders.Pokemon;
-using Pokepedia.Domain.Entities.Pokemon;
+using Pokepedia.Domain.Contenders.Pokemons;
+using Pokepedia.Domain.Entities.Pokemons;
 using Pokepedia.Domain.Services.Crud;
 
 namespace Pokepedia.Api.Controllers.Pokepedia

@@ -1,4 +1,4 @@
-using Pokepedia.Domain.Entities.Pokemon;
+using Pokepedia.Domain.Entities.Pokemons;
 using Pokepedia.Domain.Services.Crud;
 using Pokepedia.Domain.Services.Pokemons;
 

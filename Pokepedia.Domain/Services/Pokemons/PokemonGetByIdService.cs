@@ -1,4 +1,4 @@
-﻿namespace Pokepedia.Domain.Services.Pokemon
+﻿namespace Pokepedia.Domain.Services.Pokemons
 {
     internal class PokemonGetByIdService
     {
