@@ -1,20 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
 using Pokepedia.Api.Controllers.Pokepedia.Requests;
 using Pokepedia.Api.Controllers.Pokepedia.Responses;
-using Pokepedia.Domain.Contenders.Pokemons;
-using Pokepedia.Domain.Entities.Pokemons;
+using Pokepedia.Domain.Contenders.Pokemon;
+using Pokepedia.Domain.Entities.Pokemon;
 using Pokepedia.Domain.Services.Crud;
 
 namespace Pokepedia.Api.Controllers.Pokepedia
 {
     [ApiController]
     [Route("v1")]
-    public class PokepediaController : ControllerBase
+    public class PokemonController : ControllerBase
     {
-        private readonly ILogger<PokepediaController> _logger;
-        private readonly ICreateService<NewPokemon, Pokemon> _pokemonGetService;
+        private readonly ILogger<PokemonController> _logger;
+        private readonly IGetService<PokemonName, Pokemon> _pokemonGetService;
 
-        public PokepediaController(ILogger<PokepediaController> logger, ICreateService<NewPokemon, Pokemon> pokemonGetService)
+        public PokemonController(ILogger<PokemonController> logger, IGetService<PokemonName, Pokemon> pokemonGetService)
         {
             _logger = logger;
             _pokemonGetService = pokemonGetService;
@@ -23,22 +23,22 @@ namespace Pokepedia.Api.Controllers.Pokepedia
         [HttpGet("pokemon/getByName")] //TODO Add Api Versioning
         public async Task<ActionResult<GetPokemonByNameResponse>> HandleAsync([FromQuery] GetPokemonByNameRequest getPokemonByNameRequest, CancellationToken cancellation = default)//TODO Add inject service for getting name
         {
-            var newPokemon = new NewPokemon(new NewPokemonContender() { Name = getPokemonByNameRequest.Name});
-            var getPokemon = await _pokemonGetService.CreateAsync(newPokemon);
+            var pokemonToGet = new PokemonName(new PokemonNameContender() { Name = getPokemonByNameRequest.Name });
+            var getPokemon = await _pokemonGetService.GetPokemonAsync(pokemonToGet);
 
             var response = new GetPokemonByNameResponse()
             {
                 Name = getPokemon.Name,
                 Id = getPokemon.Id,
-                Weight= getPokemon.Weight,
-                SpriteImagePath = getPokemon.SpriteImagePath 
+                Weight = getPokemon.Weight,
+                SpriteImagePath = getPokemon.SpriteImagePath
             };
 
             return new OkObjectResult(response);
         }
 
         [HttpGet("pokemon/getById")]
-        public async Task<ActionResult<GetPokemonByIdResponse>> HandleAsync([FromQuery]GetPokemonByIdRequest getPokemonByIdRequest, CancellationToken cancellation = default)
+        public async Task<ActionResult<GetPokemonByIdResponse>> HandleAsync([FromQuery] GetPokemonByIdRequest getPokemonByIdRequest, CancellationToken cancellation = default)
         {
             var response = new GetPokemonByIdResponse() { Id = getPokemonByIdRequest.Id };
 
