@@ -1,6 +1,7 @@
 ﻿namespace Pokepedia.Domain.Contenders.Pokemons
 {
-    internal class PokemonIdContender
+    public class PokemonIdContender
     {
+        public int Id { get; set; } = 0;
     }
 }
