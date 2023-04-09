@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Pokepedia.ApiAdapter\Pokepedia.ApiAdapter.csproj" />
     <ProjectReference Include="..\Pokepedia.Domain\Pokepedia.Domain.csproj" />
   </ItemGroup>
 

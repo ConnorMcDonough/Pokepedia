@@ -1,6 +1,6 @@
-﻿namespace Pokepedia.Api.Controllers.Pokepedia.Responses
+﻿namespace Pokepedia.ApiAdapter.Models
 {
-    public class GetPokemonByNameResponse
+    public class PokemonModel
     {
         public string Name { get; set; } = string.Empty;
         public int Id { get; set; } = 0;

@@ -2,6 +2,8 @@
 {
     public interface IGetService<T, TResult>
     {
-        Task<TResult> GetPokemonAsync(T type);
+        Task<TResult> GetPokemonByNameAsync(T type);
+      
+
     }
 }
