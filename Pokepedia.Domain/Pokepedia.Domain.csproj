@@ -6,4 +6,8 @@
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Pokepedia.ApiAdapter\Pokepedia.ApiAdapter.csproj" />
+	</ItemGroup>
+
 </Project>

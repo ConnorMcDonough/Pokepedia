@@ -13,7 +13,7 @@ namespace Pokepedia.Domain.Services.Pokemons
                 Name = "test",
                 Id = pokemon.Id,
                 Weight = 96,
-                SpriteImagePath = "www.imagepath.org"
+                Order = 84
             };
 
             return new Pokemon(pokemonContender);

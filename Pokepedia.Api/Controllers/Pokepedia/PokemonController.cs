@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Pokepedia.Api.Controllers.Pokepedia.Requests;
 using Pokepedia.Api.Controllers.Pokepedia.Responses;
+using Pokepedia.ApiAdapter.PokeApi;
 using Pokepedia.Domain.Contenders.Pokemons;
 using Pokepedia.Domain.Entities.Pokemons;
 using Pokepedia.Domain.Services.Crud;
@@ -33,7 +34,7 @@ namespace Pokepedia.Api.Controllers.Pokepedia
                 Name = getPokemon.Name,
                 Id = getPokemon.Id,
                 Weight = getPokemon.Weight,
-                SpriteImagePath = getPokemon.SpriteImagePath
+                Order = getPokemon.Order
             };
 
             return new OkObjectResult(response);
@@ -50,7 +51,7 @@ namespace Pokepedia.Api.Controllers.Pokepedia
                 Name = getPokemon.Name,
                 Id = getPokemonByIdRequest.Id,
                 Weight = getPokemon.Weight,
-                SpriteImagePath= getPokemon.SpriteImagePath
+                Order = getPokemon.Order
             };
 
             return new OkObjectResult(response);
