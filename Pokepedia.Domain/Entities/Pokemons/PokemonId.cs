@@ -1,6 +1,6 @@
 ﻿using Pokepedia.Domain.Contenders.Pokemons;
 
-namespace Pokepedia.Domain.Entities.Pokemonss
+namespace Pokepedia.Domain.Entities.Pokemons
 {
     public class PokemonId
     {

@@ -3,7 +3,6 @@ using Pokepedia.Api.Controllers.Pokepedia.Requests;
 using Pokepedia.Api.Controllers.Pokepedia.Responses;
 using Pokepedia.Domain.Contenders.Pokemons;
 using Pokepedia.Domain.Entities.Pokemons;
-using Pokepedia.Domain.Entities.Pokemonss;
 using Pokepedia.Domain.Services.Crud;
 
 namespace Pokepedia.Api.Controllers.Pokepedia
@@ -14,7 +13,7 @@ namespace Pokepedia.Api.Controllers.Pokepedia
     {
         private readonly ILogger<PokemonController> _logger;
         private readonly IGetService<PokemonName, Pokemon> _pokemonGetService;
-        private readonly IGetServiceId<PokemonName, Pokemon> _pokemonGetServiceId;
+        private readonly IGetServiceId<PokemonId, Pokemon> _pokemonGetServiceId;
 
         public PokemonController(ILogger<PokemonController> logger, IGetService<PokemonName, Pokemon> pokemonGetService, IGetServiceId<PokemonId, Pokemon> pokemonGetServiceId)
         {
