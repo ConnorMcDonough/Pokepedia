@@ -1,18 +1,16 @@
-﻿
-using Pokepedia.ApiAdapter.PokeApi;
+﻿using Pokepedia.ApiAdapter.PokeApi;
 using Pokepedia.Domain.Contenders.Pokemons;
 using Pokepedia.Domain.Entities.Pokemons;
-using Pokepedia.Domain.Services.Crud;
+using Pokepedia.Domain.Services.Crud.Read;
+using Pokepedia.Domain.Validation;
 
-namespace Pokepedia.Domain.Services.Pokemons
+namespace Pokepedia.Domain.Services.Pokemons.Read
 {
-    public class PokemonGetByNameService : IGetService<PokemonName, Pokemon>
+    public class PokemonReadByIdService : IReadByIdService<PokemonId, Pokemon>
     {
-        public async Task<Pokemon> GetPokemonByNameAsync(PokemonName pokemonName)
+        public async Task<Pokemon> GetPokemonByIdAsync(PokemonId pokemonId)
         {
-            var pokeAdapter = new GetPokemon();
-
-            var pokemonModel = await pokeAdapter.GetPokemonByNameAsync(pokemonName.Name);
+            var pokemonModel = await GetPokemon.GetPokemonByIdAsync(pokemonId.GetValue());
 
             var pokemonContender = new PokemonContender()
             {
