@@ -1,12 +1,12 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
-using Pokepedia.Api.Controllers.Pokemons.GetPokemon.Requests;
-using Pokepedia.Api.Controllers.Pokemons.GetPokemon.Responses;
+using Pokepedia.Api.Controllers.Pokemons.PokemonGet.Requests;
+using Pokepedia.Api.Controllers.Pokemons.PokemonGet.Responses;
 using Pokepedia.Domain.Entities.Pokemons;
 using Pokepedia.Domain.Services.Crud.Read;
 using Pokepedia.Domain.Validation;
 
-namespace Pokepedia.Api.Controllers.Pokemons.GetPokemon
+namespace Pokepedia.Api.Controllers.Pokemons.PokemonGet
 {
     [ApiController]
     [Route("v1")]

@@ -1,4 +1,4 @@
-﻿namespace Pokepedia.Api.Controllers.Pokemons.GetPokemon.Requests
+﻿namespace Pokepedia.Api.Controllers.Pokemons.PokemonGet.Requests
 {
     public class GetPokemonByIdRequest
     {
