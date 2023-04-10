@@ -1,4 +1,3 @@
-
 using Microsoft.AspNetCore.Mvc;
 using Pokepedia.Api.Controllers.Pokemons.PokemonGet.Requests;
 using Pokepedia.Api.Controllers.Pokemons.PokemonGet.Responses;

@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Pokepedia.Api.Controllers.Pokemons.PokemonGet.Requests;
 using Pokepedia.Api.Controllers.Pokemons.PokemonGet.Responses;
 using Pokepedia.Domain.Entities.Pokemons;
