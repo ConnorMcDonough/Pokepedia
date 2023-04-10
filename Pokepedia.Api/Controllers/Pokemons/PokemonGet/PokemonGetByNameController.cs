@@ -22,7 +22,7 @@ namespace Pokepedia.Api.Controllers.Pokemons.GetPokemon
         }
 
         [HttpGet("pokemon/getByName")] //TODO Add Api Versioning
-        public async Task<ActionResult<GetPokemonByNameResponse>> HandleAsync([FromQuery] GetPokemonByNameRequest getPokemonByNameRequest, CancellationToken cancellation = default)//TODO Add inject service for getting name
+        public async Task<ActionResult<GetPokemonByNameResponse>> HandleAsync([FromQuery] GetPokemonByNameRequest getPokemonByNameRequest, CancellationToken cancellation = default)
         {
             var pokemonToGet = new PokemonName(getPokemonByNameRequest.Name);
             var getPokemon = await _pokemoneGetByNameService.GetPokemonByNameAsync(pokemonToGet);
