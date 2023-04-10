@@ -1,6 +1,7 @@
 using Pokepedia.Domain.Entities.Pokemons;
-using Pokepedia.Domain.Services.Crud;
-using Pokepedia.Domain.Services.Pokemons;
+using Pokepedia.Domain.Services.Crud.Read;
+using Pokepedia.Domain.Services.Pokemons.Read;
+using Pokepedia.Domain.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IGetService<PokemonName, Pokemon>, PokemonGetByNameService>();
-builder.Services.AddSingleton<IGetServiceId<PokemonId, Pokemon>, PokemonGetByIdService>();
+builder.Services.AddSingleton<IReadByNameService<PokemonName, Pokemon>, PokemonReadByNameService>();
+builder.Services.AddSingleton<IReadByIdService<PokemonId, Pokemon>, PokemonReadByIdService>();
 
 var app = builder.Build();
 

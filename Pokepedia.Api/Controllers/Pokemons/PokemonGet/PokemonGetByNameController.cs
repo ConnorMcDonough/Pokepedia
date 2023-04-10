@@ -1,0 +1,41 @@
+
+using Microsoft.AspNetCore.Mvc;
+using Pokepedia.Api.Controllers.Pokemons.GetPokemon.Requests;
+using Pokepedia.Api.Controllers.Pokemons.GetPokemon.Responses;
+using Pokepedia.Domain.Entities.Pokemons;
+using Pokepedia.Domain.Services.Crud.Read;
+using Pokepedia.Domain.Validation;
+
+namespace Pokepedia.Api.Controllers.Pokemons.GetPokemon
+{
+    [ApiController]
+    [Route("v1")]
+    public class PokemonGetByNameController : ControllerBase
+    {
+        private readonly ILogger<PokemonGetByNameController> _logger;//todo add logger
+        private readonly IReadByNameService<PokemonName, Pokemon> _pokemoneGetByNameService;
+
+        public PokemonGetByNameController(ILogger<PokemonGetByNameController> logger, IReadByNameService<PokemonName, Pokemon> pokemonGetByNameService)
+        {
+            _logger = logger;
+            _pokemoneGetByNameService = pokemonGetByNameService;
+        }
+
+        [HttpGet("pokemon/getByName")] //TODO Add Api Versioning
+        public async Task<ActionResult<GetPokemonByNameResponse>> HandleAsync([FromQuery] GetPokemonByNameRequest getPokemonByNameRequest, CancellationToken cancellation = default)//TODO Add inject service for getting name
+        {
+            var pokemonToGet = new PokemonName(getPokemonByNameRequest.Name);
+            var getPokemon = await _pokemoneGetByNameService.GetPokemonByNameAsync(pokemonToGet);
+
+            var response = new GetPokemonByNameResponse()
+            {
+                Name = getPokemon.Name,
+                Id = getPokemon.Id,
+                Weight = getPokemon.Weight,
+                Order = getPokemon.Order
+            };
+
+            return new OkObjectResult(response);
+        }
+    }
+}
