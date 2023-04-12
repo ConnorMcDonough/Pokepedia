@@ -22,6 +22,12 @@ namespace Pokepedia.ApiAdapter.PokeApi
             return await GetPokemonAsync(urlQuery);
         }
 
+        public static async Task<PokemonModel> GetLocationByPokemonNameAsync(string name)
+        {
+            var urlQuery = $"pokemon/{name}/encounters";
+            return await GetPokemonAsync(urlQuery);
+        }
+
         private static async Task<PokemonModel> GetPokemonAsync(string urlQuery)
         {
             using (var client = new HttpClient())

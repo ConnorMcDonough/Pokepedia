@@ -9,6 +9,10 @@ namespace Pokepedia.Domain.Entities.Pokemons
         public string Name { get; }
         public int Weight { get; }
         public int Order { get; }
+        public string LocationArea { get; }
+        public string LocationDetails { get; }
+
+
 
         public Pokemon(PokemonContender pokemonContender)
         {
@@ -16,6 +20,8 @@ namespace Pokepedia.Domain.Entities.Pokemons
             Name = pokemonContender.Name;
             Weight = pokemonContender.Weight;
             Order = pokemonContender.Order;
+            LocationArea= pokemonContender.LocationArea;
+            LocationDetails= pokemonContender.LocationDetails;
         }
     }
 }
