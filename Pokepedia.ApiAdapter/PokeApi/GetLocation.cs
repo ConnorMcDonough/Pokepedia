@@ -4,25 +4,17 @@ using System.Net.Http.Headers;
 
 namespace Pokepedia.ApiAdapter.PokeApi
 {
-    public class GetPokemon
+    public class GetLocation
     {
         private const string Url = "https://pokeapi.co/api/v2/";
 
-        public static async Task<PokemonModel> GetPokemonByNameAsync(string name)
+        public static async Task<LocationModel> GetLocationByPokemonNameAsync(string name)
         {
-            var urlQuery = $"pokemon/{name}";
-
-            return await GetPokemonAsync(urlQuery);
+            var urlQuery = $"pokemon/{name}/encounters";
+            return await GetLocationAsync(urlQuery);
         }
 
-        public static async Task<PokemonModel> GetPokemonByIdAsync(int id)
-        {
-            var urlQuery = $"pokemon/{id}";
-
-            return await GetPokemonAsync(urlQuery);
-        }
-
-        private static async Task<PokemonModel> GetPokemonAsync(string urlQuery)
+        private static async Task<LocationModel> GetLocationAsync(string urlQuery)
         {
             using (var client = new HttpClient())
             {
@@ -37,9 +29,9 @@ namespace Pokepedia.ApiAdapter.PokeApi
                 {
                     var result = await response.Content.ReadAsStringAsync();
 
-                    var pokemonModel = JsonConvert.DeserializeObject<PokemonModel>(result) ?? throw new InvalidOperationException("Failed to deserialize object");
+                    var locationModel = JsonConvert.DeserializeObject<LocationModel>(result) ?? throw new InvalidOperationException("Failed to deserialize object");
 
-                    return pokemonModel;
+                    return locationModel;
                 }
                 else
                 {
@@ -49,3 +41,4 @@ namespace Pokepedia.ApiAdapter.PokeApi
         }
     }
 }
+

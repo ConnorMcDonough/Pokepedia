@@ -1,4 +1,4 @@
-﻿namespace Pokepedia.Domain.Contenders.Pokemons
+﻿namespace Pokepedia.Domain.Contenders.Locations
 {
     public class PokemonLocationByNameContender
     {

@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Pokepedia.Api.Controllers.Pokemons.PokemonGet.Requests;
-using Pokepedia.Api.Controllers.Pokemons.PokemonGet.Responses;
+using Pokepedia.Api.Controllers.Pokemons.LocationGet.Requests;
+using Pokepedia.Api.Controllers.Pokemons.LocationGet.Responses;
 using Pokepedia.Domain.Entities.Pokemons;
 using Pokepedia.Domain.Services.Crud.Read;
 using Pokepedia.Domain.Validation;
 
-namespace Pokepedia.Api.Controllers.Pokemons.PokemonGet
+namespace Pokepedia.Api.Controllers.Pokemons.LocationGet
 {
     [ApiController]
     [Route("v1")]
@@ -27,8 +27,7 @@ namespace Pokepedia.Api.Controllers.Pokemons.PokemonGet
             Id = getLocation.Id,
             LocationArea = getLocation.LocationArea,
             LocationDetails = getLocation.LocationDetails,
-};
-
+        };
         return new OkObjectResult(response);
     }
 }

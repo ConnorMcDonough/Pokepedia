@@ -1,4 +1,4 @@
-﻿namespace Pokepedia.Api.Controllers.Pokemons.PokemonGet.Responses
+﻿namespace Pokepedia.Api.Controllers.Pokemons.LocationGet.Responses
 {
     public class GetLocationByPokemonNameResponse
     {
