@@ -18,15 +18,11 @@ namespace Pokepedia.Domain.Services.Locations.Read
             {
                 Name = pokemonModel.Name,
                 Id = pokemonModel.Id,
-                Weight = pokemonModel.Weight,
-                Order = pokemonModel.Order,
                 LocationArea = locationModel.LocationArea,
                 LocationDetails = locationModel.LocationDetails,
             };
 
             return new Location(locationContender);
-
         }
-
     }
 }

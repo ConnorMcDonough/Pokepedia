@@ -4,6 +4,7 @@ using Pokepedia.Api.Controllers.Pokemons.LocationGet.Responses;
 using Pokepedia.Domain.Entities.Pokemons;
 using Pokepedia.Domain.Services.Crud.Read;
 using Pokepedia.Domain.Validation;
+using Pokepedia.Domain.Validation.LocationValidation;
 
 namespace Pokepedia.Api.Controllers.Pokemons.LocationGet
 {
@@ -28,6 +29,7 @@ namespace Pokepedia.Api.Controllers.Pokemons.LocationGet
             LocationArea = getLocation.LocationArea,
             LocationDetails = getLocation.LocationDetails,
         };
+
         return new OkObjectResult(response);
     }
 }

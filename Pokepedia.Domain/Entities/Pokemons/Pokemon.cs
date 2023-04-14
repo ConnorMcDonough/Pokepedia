@@ -16,8 +16,7 @@ namespace Pokepedia.Domain.Entities.Pokemons
             Id = pokemonContender.Id;
             Name = pokemonContender.Name;
             Weight = pokemonContender.Weight;
-            Order = pokemonContender.Order;
-            
+            Order = pokemonContender.Order; 
         }
     }
 }

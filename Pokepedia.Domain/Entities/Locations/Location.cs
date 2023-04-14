@@ -12,11 +12,5 @@ namespace Pokepedia.Domain.Entities.Locations
             LocationArea = locationContender.LocationArea;
             LocationDetails = locationContender.LocationDetails;
         }
-
-
-
-
-
-
     }
 }

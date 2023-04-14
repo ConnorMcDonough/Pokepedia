@@ -1,4 +1,4 @@
-﻿namespace Pokepedia.Domain.Validation
+﻿namespace Pokepedia.Domain.Validation.LocationValidation
 {
     public class LocationByName
     {
