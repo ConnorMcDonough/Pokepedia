@@ -7,19 +7,16 @@ using Pokepedia.Domain.Validation;
 
 namespace Pokepedia.Domain.Services.Locations.Read
 {
-    public class LocationReadByPokemonNameService : IReadByNameServiceForLocation<PokemonName, Pokemon>
+    public class LocationReadByNameService : IReadByNameForLocationService<PokemonName, Location>
     {
-        public async Task<Location> GetLocationByPokemonNameAsync(PokemonName pokemonName)
+        public async Task<Location> GetLocationByNameAsync(PokemonName pokemonName)
         {
             var locationModel = await GetLocation.GetLocationByPokemonNameAsync(pokemonName.ToString());
             var pokemonModel = await GetPokemon.GetPokemonByNameAsync(pokemonName.ToString());
 
             var locationContender = new LocationContender()
             {
-                Name = pokemonModel.Name,
-                Id = pokemonModel.Id,
                 LocationArea = locationModel.LocationArea,
-                LocationDetails = locationModel.LocationDetails,
             };
 
             return new Location(locationContender);

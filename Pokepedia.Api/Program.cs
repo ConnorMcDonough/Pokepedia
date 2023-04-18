@@ -1,5 +1,7 @@
+using Pokepedia.Domain.Entities.Locations;
 using Pokepedia.Domain.Entities.Pokemons;
 using Pokepedia.Domain.Services.Crud.Read;
+using Pokepedia.Domain.Services.Locations.Read;
 using Pokepedia.Domain.Services.Pokemons.Read;
 using Pokepedia.Domain.Validation;
 
@@ -14,6 +16,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IReadByNameService<PokemonName, Pokemon>, PokemonReadByNameService>();
 builder.Services.AddSingleton<IReadByIdService<PokemonId, Pokemon>, PokemonReadByIdService>();
+builder.Services.AddSingleton<IReadByNameForLocationService<PokemonName, Location>, LocationReadByNameService>();
 
 var app = builder.Build();
 

@@ -1,43 +1,31 @@
 ﻿using Newtonsoft.Json;
+using Pokepedia.ApiAdapter.Helpers;
 using Pokepedia.ApiAdapter.Models;
-using System.Net.Http.Headers;
 
 namespace Pokepedia.ApiAdapter.PokeApi
 {
     public class GetLocation
     {
-        private const string Url = "https://pokeapi.co/api/v2/";
-
         public static async Task<LocationModel> GetLocationByPokemonNameAsync(string name)
         {
             var urlQuery = $"pokemon/{name}/encounters";
-            return await GetLocationAsync(urlQuery);
+            var responseQuery = await GetPokiHelper.GetResponseQueryAsync(urlQuery);
+
+            return CreateLocationModel(responseQuery);
         }
 
-        private static async Task<LocationModel> GetLocationAsync(string urlQuery)
+        private static LocationModel CreateLocationModel(string responseQuery)
         {
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(Url);
+            var jsonConversion = JsonConvert.DeserializeObject<List<string>>(responseQuery) ?? throw new ArgumentNullException(nameof(responseQuery));
 
-                client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-
-                HttpResponseMessage response = await client.GetAsync(urlQuery);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsStringAsync();
-
-                    var locationModel = JsonConvert.DeserializeObject<LocationModel>(result) ?? throw new InvalidOperationException("Failed to deserialize object");
-
-                    return locationModel;
-                }
-                else
-                {
-                    throw new InvalidOperationException($"Endpoint was not successfull with urlQuery: {urlQuery}");
-                }
-            }
+            return new LocationModel();
+            //var result = new LocationModel()
+            //{
+            //    LocationArea = new LocationArea()
+            //    {
+            //        Name = jsonConversion[0].Name
+            //    }
+            //}
         }
     }
 }
